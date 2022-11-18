@@ -26,3 +26,18 @@ body {
 #nameCoin {
 	font-size: 2em;
 }
+
+h2 {
+	padding: 0;
+	margin: 0;
+}
+
+img {
+	padding: 0;
+	margin: 0;
+}
+
+#timeTitle {
+	font-size: 8em;
+	margin-bottom: 2em;
+}
