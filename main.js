@@ -14,6 +14,7 @@ async function render() {
 	setBackground(data);
 	setAutor(data);
 	coins();
+	getLocation();
 }
 
 function setBackground(data) {
@@ -72,18 +73,15 @@ function getLocation() {
 }
 
 async function getWeather(lat, lon) {
-	console.log(lat, lon);
 	const res = await fetch(
 		`https://apis.scrimba.com/openweathermap/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric`
 	);
 	const data = await res.json();
-	// setWeather(data);
-	console.log(data);
+	setWeather(data);
 }
 
-function setWeather() {
-	getLocation();
-	weather.innerHTML = `<div> <img src="${weather.icon}.png"> </div>`;
+function setWeather(data) {
+	weather.innerHTML = `<div> <img src="http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" </div>`;
 }
 
 render();
