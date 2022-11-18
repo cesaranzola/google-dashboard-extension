@@ -6,11 +6,16 @@ const cryinfo = document.getElementById('cryinfo');
 const currentTime = document.getElementById('currentTime');
 const weather = document.getElementById('weather');
 
-async function render() {
+async function getImg() {
 	const res = await fetch(
 		'https://apis.scrimba.com/unsplash/photos/random?orientation=landscape&query=nature'
 	);
 	const data = await res.json();
+	return data;
+}
+
+async function render() {
+	const data = await getImg();
 	setBackground(data);
 	setAutor(data);
 	coins();
@@ -81,7 +86,11 @@ async function getWeather(lat, lon) {
 }
 
 function setWeather(data) {
-	weather.innerHTML = `<div> <img src="http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png" </div>`;
+	weather.innerHTML = `<div>  <img src="http://openweathermap.org/img/wn/${
+		data.weather[0].icon
+	}@2x.png"> <span id="temp"> ${Math.floor(
+		data.main.temp
+	)}º </span> <h2 id="city">${data.name}</h2> </div>`;
 }
 
 render();

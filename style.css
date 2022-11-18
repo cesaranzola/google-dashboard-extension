@@ -41,3 +41,17 @@ img {
 	font-size: 8em;
 	margin-bottom: 2em;
 }
+
+#city {
+	font-size: 2rem;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	bottom: 25px;
+}
+
+#temp {
+	font-size: 3rem;
+	position: relative;
+	top: 20px;
+}
